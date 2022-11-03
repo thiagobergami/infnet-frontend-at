@@ -1,0 +1,37 @@
+[
+    {
+        "id": "919f4b73-5667-4679-bee5-487cd3d26f2a",
+        "name": "Beauty",
+        "createdAt": "2022-11-01T23:31:55.142Z",
+        "treatmentType": "Gorgeous",
+        "description": "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles"
+    },
+    {
+        "id": "50a0a7d0-9e97-41c5-9ea8-946675bce81c",
+        "name": "Jewelery",
+        "createdAt": "2022-11-01T23:31:55.142Z",
+        "treatmentType": "Unbranded",
+        "description": "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit"
+    },
+    {
+        "id": "cc130e72-a844-4e47-b7ad-6bd72e942d8b",
+        "name": "Garden",
+        "createdAt": "2022-11-01T23:31:55.142Z",
+        "treatmentType": "Incredible",
+        "description": "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J"
+    },
+    {
+        "id": "4143a2e0-3e2c-4d71-8f0a-fe5f18805674",
+        "name": "Toys",
+        "createdAt": "2022-11-01T23:31:55.142Z",
+        "treatmentType": "Refined",
+        "description": "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support"
+    },
+    {
+        "id": "9143dcea-4b4b-4d53-8f10-4385f4f2c2b6",
+        "name": "Grocery",
+        "createdAt": "2022-11-01T23:31:55.142Z",
+        "treatmentType": "Practical",
+        "description": "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support"
+    }
+]
