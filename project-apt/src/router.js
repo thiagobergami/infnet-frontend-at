@@ -5,8 +5,7 @@ const treatmentController = require('./controllers/TreatmentController')
 
 router.get(
     '/treatments', (request, response) => {
-        console.log('getted')
-        const treatments = treatmentController.listTreatment()
+        const treatments = treatmentController.listTreatment(request)
         response.send(treatments)
     })
 

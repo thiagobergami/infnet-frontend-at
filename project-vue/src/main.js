@@ -12,20 +12,41 @@ const app = createApp(App)
 const store = createStore({
     state: {
         treatments: [],
-        selectedTreatment : null
+        treatment: null
     },
     actions: {
         async listar({ commit }) {
             const response = await TreatmentsService.listar()
-            commit("listar", response.data);
+            commit("listar", response);
+        },
+        async adicionar({ commit }, treatment) {
+            try {
+                const response = await TreatmentsService.adicionar(treatment)
+                commit("adicionar", response)
+                return true
+            } catch (error) {
+                return false
+            }
+        },
+        async verifiacarUnico(treatment) {
+            const response = await TreatmentsService.adicionar(treatment)
+            return response;
+        },
+        async buscar({commit}, id){
+            const response = await TreatmentsService.buscar(id)
+            commit("buscar", response)
         }
     },
-    getters:{
-        treatments: state => state.treaments,
-        treatment: state => state.selectedTreatment
-    },  
-    mutations:{
-        listar: (state, treatments) => (state.treatments = treatments)
+    getters: {
+        treatments: state => state.treatments,
+        treatment: state => state.treatment
+    },
+    mutations: {
+        listar: (state, treatments) => {
+            (state.treatments = treatments)
+        },
+        adicionar: (state, treatment) => state.treatments.push(treatment),
+        buscar: (state, treatment) => (state.treatment = treatment),
     }
 });
 

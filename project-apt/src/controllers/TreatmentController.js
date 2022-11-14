@@ -36,7 +36,8 @@ class TreatmentController {
         return { result: updatedTreatment, statusCode: 201 }
     }
     listTreatment() {
-        return this.treatmentsRepository.find()
+        const { id } = request.params;
+        return this.treatmentsRepository.find(id)
     }
     deleteTreatment(request) {
         const { id } = request.params;
