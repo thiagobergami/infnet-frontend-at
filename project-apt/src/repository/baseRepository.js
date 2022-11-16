@@ -3,10 +3,10 @@ class BaseRepository {
     constructor() {
         this.database = []
     }
-    find(itemId) {
-        if (!itemId) return this.database
+    find(id) {
+        if (!id) return this.database
 
-        return this.database.find(({ id }) => id === itemId)
+        return this.database.find(({ id }) => id === id)
     }
 
     findByName(itemName) {

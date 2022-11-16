@@ -28,13 +28,26 @@ const store = createStore({
                 return false
             }
         },
+        async editar({ commit }, treatment) {
+            try {
+                const response = await TreatmentsService.editar(treatment)
+                commit("editar", response)
+                return true
+            } catch (error) {
+                return false
+            }
+        },
         async verifiacarUnico(treatment) {
             const response = await TreatmentsService.adicionar(treatment)
             return response;
         },
-        async buscar({commit}, id){
+        async buscar({ commit }, id) {
             const response = await TreatmentsService.buscar(id)
             commit("buscar", response)
+        },
+        async excluir({ commit }, id) {
+            await TreatmentsService.deletar(id)
+            commit("excluir", id)
         }
     },
     getters: {
@@ -47,6 +60,11 @@ const store = createStore({
         },
         adicionar: (state, treatment) => state.treatments.push(treatment),
         buscar: (state, treatment) => (state.treatment = treatment),
+        editar: (state, treatment) => {
+            const index = state.treatments.findIndex(l => l.id === treatment.id);
+            state.treatments.splice(index, 1, treatment);
+        },
+        excluir: (state, id) => state.treatments = state.treatments.filter(treatment => treatment.id !== id)
     }
 });
 

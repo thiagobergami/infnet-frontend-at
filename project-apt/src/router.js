@@ -4,7 +4,7 @@ const router = Router()
 const treatmentController = require('./controllers/TreatmentController')
 
 router.get(
-    '/treatments', (request, response) => {
+    '/treatments/:id?', (request, response) => {
         const treatments = treatmentController.listTreatment(request)
         response.send(treatments)
     })

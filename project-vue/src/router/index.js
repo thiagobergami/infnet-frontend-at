@@ -1,7 +1,8 @@
 import { createRouter, createWebHistory } from "vue-router"
 
 import ListTreatment from "../components/ListTreatment.vue";
-import AddTreatment from "../components/AddTreatment.vue"
+import AddTreatment from "../components/AddTreatment.vue";
+import EditTreatment from "../components/EditTreatment.vue";
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -13,10 +14,15 @@ const router = createRouter({
             component: () => ListTreatment
         },
         {
-            path: "/",
+            path: "/adicionar",
             alias: "/adicionar",
             name: "adicionar",
             component: () => AddTreatment
+        },
+        {
+            path: "/treatment/:id",
+            name: "editar",
+            component: () => EditTreatment
         }
     ]
 })

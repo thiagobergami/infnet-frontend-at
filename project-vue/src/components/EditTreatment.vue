@@ -1,6 +1,6 @@
 <template>
-  <div v-if="sucess">
-    <div class="alert alert-success">Tratamento atualizado com sucesso!</div>
+  <div v-if="success">
+    <div class="alert alert-success">Tratamento atualizado com successo!</div>
   </div>
   <div v-if="error">
     <div class="alert alert-danger">
@@ -59,12 +59,40 @@
 import { mapActions } from "vuex";
 
 export default {
-    name: "editar-tratamento",
-    data(){
-        return {
-            sucess: true,
-            error: false
-        }
-    }
-}
+  name: "editar-tratamento",
+  data() {
+    return {
+      success: true,
+      error: false,
+    };
+  },
+  async created() {
+    this.success = false;
+    await this.buscar(this.$route.params.id);
+  },
+  methods: {
+    ...mapActions(["buscar", "editar"]),
+    async edit() {
+      const response = await this.editar(this.treatment);
+      if (!response) {
+        this.success = false;
+        this.error = true;
+        this.errorMessage = "Não foi possível editar!";
+      } else {
+        this.success = true;
+        this.error = false;
+      }
+    },
+  },
+  computed: {
+    treatment: {
+      get() {
+        return this.$store.state.treatment;
+      },
+      set(treatment) {
+        this.$store.commit("treatment", treatment);
+      },
+    },
+  },
+};
 </script>
